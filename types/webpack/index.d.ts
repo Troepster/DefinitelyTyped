@@ -576,6 +576,8 @@ declare namespace webpack {
             priority?: number;
             /** Minimal size for the created chunk */
             minSize?: number;
+            /** Maximum size for the created chunk */
+            maxSize?: number;
             /** Minimum number of times a module has to be duplicated until it's considered for splitting */
             minChunks?: number;
             /** Maximum number of requests which are accepted for on-demand loading */
@@ -592,6 +594,8 @@ declare namespace webpack {
             chunks?: "initial" | "async" | "all" | ((chunk: compilation.Chunk) => boolean);
             /** Minimal size for the created chunk */
             minSize?: number;
+            /** Maximum size for the created chunk */
+            maxSize?: number;
             /** Minimum number of times a module has to be duplicated until it's considered for splitting */
             minChunks?: number;
             /** Maximum number of requests which are accepted for on-demand loading */
@@ -601,7 +605,7 @@ declare namespace webpack {
             /** Give chunks created a name (chunks with equal name are merged) */
             name?: boolean | string | ((...args: any[]) => any);
             /** Assign modules to a cache group (modules from different cache groups are tried to keep in separate chunks) */
-            cacheGroups?: false | string | ((...args: any[]) => any) | RegExp | { [key: string]: CacheGroupsOptions };
+            cacheGroups?: false | string | ((...args: any[]) => any) | RegExp | { [key: string]: CacheGroupsOptions | false };
         }
         interface RuntimeChunkOptions {
             /** The name or name factory for the runtime chunks. */
